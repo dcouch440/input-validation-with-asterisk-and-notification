@@ -28,13 +28,13 @@ Download this file by either download the zip file or cloning the repo
 - from your terminal type in git clone { repo here }
 
 ```
-git clone https://github.com/dcouch440/antique_chat_socket.git
+git clone https://github.com/dcouch440/input-validation-with-asterisk-and-notification.git
 ```
 
 - then change directories to the downloaded repo
 
 ```
-  cd antique_chat_socket
+  cd input-validation-with-asterisk-and-notification
 ```
 
 - open the project by typing
