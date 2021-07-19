@@ -1,8 +1,8 @@
 ### `Input Validation With Asterisk and Notification`
 
-### `Created By: David Couch, 7/17/2021`
+#### `Created By: David Couch, 7/17/2021`
 ***
-## `About`
+### `About`
 
 This is a small simple but scalable application dedicated to implementing yup validation with callback objects to pass through information to the catch block.
     This concept will provide
@@ -11,7 +11,7 @@ This is a small simple but scalable application dedicated to implementing yup va
     - If a form is paginated state can be set to move the user back to page where the error occurred.
     - Users get a plain english explanation of where the error occurred
 
-# `Preview`
+## `Preview`
 
 <img src='./public/validation-input.png' alt='preview' >
 
