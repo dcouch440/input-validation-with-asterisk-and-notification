@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.2",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -31,21 +33,42 @@
       "react-app/jest"
     ],
     "rules": {
-      "semi": ["error", "never"],
+      "semi": [
+        "error",
+        "never"
+      ],
       "semi-spacing": "error",
       "no-multiple-empty-lines": "error",
       "no-unused-vars": "warn",
       "keyword-spacing": "error",
       "space-before-function-paren": "error",
-      "object-curly-spacing": ["warn", "always"],
+      "object-curly-spacing": [
+        "warn",
+        "always"
+      ],
       "react/react-in-jsx-scope": "off",
       "eqeqeq": "error",
       "curly": "error",
-      "quotes": ["error", "single"],
+      "quotes": [
+        "error",
+        "single"
+      ],
       "block-spacing": "error",
-      "arrow-parens": ["error", "as-needed"],
-      "brace-style": ["error", "1tbs"],
-      "no-trailing-spaces": ["error", { "skipBlankLines": true, "ignoreComments": true }]
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "brace-style": [
+        "error",
+        "1tbs"
+      ],
+      "no-trailing-spaces": [
+        "error",
+        {
+          "skipBlankLines": true,
+          "ignoreComments": true
+        }
+      ]
     }
   },
   "browserslist": {

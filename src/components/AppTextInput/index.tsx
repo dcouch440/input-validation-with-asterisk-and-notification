@@ -1,4 +1,5 @@
 import hasError from '../../functions/hasError'
+import ErrorIcon from '@material-ui/icons/Error'
 
 import {
   IErrors
@@ -8,6 +9,7 @@ import {
   Label,
   TextInput
 } from './styles'
+
 
 interface Props {
   autoComplete?: string
@@ -43,8 +45,10 @@ export default function AppTextInput ({
           <h3>
             { title }
             {
-              hasError({ errors: validatorErrors, name }) &&
-              <span style={{ color: 'red', fontSize: '30px' }}> *</span>
+              hasError({ errors: validatorErrors, name }) ?
+                <ErrorIcon style={{ color: 'red' }} />
+                :
+                <span style={{ color: 'red', fontSize: '30px' }}> *</span>
             }
           </h3>
       }
