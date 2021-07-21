@@ -46,14 +46,14 @@ export default function App (): JSX.Element {
     }))
   }
 
-  const validate = async () => {
+  const handleClick = async (): Promise<void> => {
     try {
       await exampleRules({ name: 'testErrors', displayName: 'Test Errors' })
         .validate(input)
     } catch (err) {
       console.log(err)
       if (err.name === 'ValidationError') {
-        setErrors([...err.errors]);
+        setErrors([...err.errors])
       }
     }
   }
@@ -70,9 +70,9 @@ export default function App (): JSX.Element {
         title='Please Enter A Number: '
       />
       <AppSubmitButton
-        onClick={validate}
+        onClick={handleClick}
         text="Validate"
       />
     </div>
-  );
+  )
 }
