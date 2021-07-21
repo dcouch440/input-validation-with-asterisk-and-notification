@@ -9,7 +9,7 @@
 
 import {
   IErrors
-} from "../../types";
+} from "../../types"
 
 interface IHasError {
   errors: IErrors[]
@@ -19,11 +19,11 @@ interface IHasError {
 const hasError = (
   { errors, name }:
   IHasError
-) => {
+): boolean => {
   return errors
     .map((error) => error.name)
     .filter(n => n === name)
     .length !== 0
 }
 
-export default hasError;
+export default hasError
