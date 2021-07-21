@@ -1,4 +1,4 @@
 export interface IErrors {
-  message: 'string';
-  name: 'string';
+  message: string
+  name: string
 }
