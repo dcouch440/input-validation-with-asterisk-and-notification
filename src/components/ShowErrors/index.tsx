@@ -1,15 +1,17 @@
-import { IErrors } from '../../types';
+import {
+  IErrors
+} from '../../types'
 
 import {
   ErrorListTitle,
   ErrorList
-} from './styles';
+} from './styles'
 
 interface Props {
   errors: IErrors[]
 }
 
-export default function ShowErrors ({ 
+export default function ShowErrors ({
   errors
 }: Props
 ): JSX.Element | null {
@@ -23,7 +25,7 @@ export default function ShowErrors ({
               <ErrorList key={i}>
               { message }
             </ErrorList>
-            );
+            )
           })
         }
       </div>

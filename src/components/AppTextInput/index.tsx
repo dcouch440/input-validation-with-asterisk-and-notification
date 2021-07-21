@@ -1,26 +1,25 @@
-import React, { ReactElement } from 'react';
-import hasError from "../../functions/hasError";
+import hasError from "../../functions/hasError"
 
 import {
   IErrors
-} from "../../types";
+} from "../../types"
 
 import {
   Label,
   TextInput
-} from './styles';
+} from './styles'
 
 interface Props {
-  autoComplete?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
-  type?: string;
+  autoComplete?: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  value: string
+  type?: string
   placeholder?: string
-  label?: string;
-  name: string;
-  title: string;
-  validatorErrors: IErrors[];
-  props?: any;
+  label?: string
+  name: string
+  title: string
+  validatorErrors: IErrors[]
+  props?: any
 }
 
 export default function AppTextInput ({
@@ -45,7 +44,7 @@ export default function AppTextInput ({
             { title }
             {
               hasError({ errors: validatorErrors, name }) &&
-              <span style={{color: 'red', fontSize: '30px'}}> *</span>
+              <span style={{ color: 'red', fontSize: '30px' }}> *</span>
             }
           </h3>
       }
@@ -57,14 +56,10 @@ export default function AppTextInput ({
           placeholder={placeholder}
           type={type}
           value={value}
-          onChange={
-            (e: React.ChangeEvent<HTMLInputElement>) => {
-              onChange(e);
-            }
-          }
+          onChange={onChange}
           {...props}
         />
       </label>
     </div>
-  );
+  )
 }
