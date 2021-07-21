@@ -39,7 +39,7 @@ export default function App (): JSX.Element {
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
     setInput(prev => ({
       ...prev,
       [name]: value
@@ -67,7 +67,7 @@ export default function App (): JSX.Element {
         value={input.testErrors}
         onChange={handleChange}
         validatorErrors={errors}
-        title='Please Enter A Number: '
+        title='Please Enter Numbers: '
       />
       <AppSubmitButton
         onClick={handleClick}

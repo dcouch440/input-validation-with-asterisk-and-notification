@@ -1,8 +1,8 @@
-import hasError from "../../functions/hasError"
+import hasError from '../../functions/hasError'
 
 import {
   IErrors
-} from "../../types"
+} from '../../types'
 
 import {
   Label,

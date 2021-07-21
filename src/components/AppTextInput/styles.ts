@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const TextInput = styled.input`
   padding: 5px;
@@ -11,9 +11,9 @@ export const TextInput = styled.input`
     outline: none;
     box-shadow: 0 0 0 5px black;
   }
-`;
+`
 
 export const Label = styled.span`
   margin-left: 7px;
   font-weight: 400;
-`;
+`

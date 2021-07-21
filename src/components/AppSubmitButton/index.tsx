@@ -1,6 +1,6 @@
 import {
   SubmitButton
-} from "./styles"
+} from './styles'
 
 interface Props {
   text: string;

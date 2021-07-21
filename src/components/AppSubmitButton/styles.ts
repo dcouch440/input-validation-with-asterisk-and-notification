@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const SubmitButton = styled.button`
   margin-top: 7px;
@@ -9,4 +9,4 @@ export const SubmitButton = styled.button`
   border-radius: 5px;
   font-weight: 600;
   box-shadow: 0 0 2px black;
-`;
+`
