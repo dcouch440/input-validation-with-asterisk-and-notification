@@ -24,11 +24,11 @@ This is a small simple but scalable application dedicated to implementing yup va
   
 `No Error`
   
-<img src='./public/validation1.png' alt='preview' >
+<img src='./public/validation01.png' alt='preview' >
   
 `Error`
   
-<img src='./public/validation2.png' alt='preview' >
+<img src='./public/validation02.png' alt='preview' >
 
   
 ## `Install`
