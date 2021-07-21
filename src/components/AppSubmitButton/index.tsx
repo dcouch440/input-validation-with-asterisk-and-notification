@@ -1,11 +1,10 @@
-import React from "react"
 import {
   SubmitButton
 } from "./styles"
 
 interface Props {
   text: string;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function AppSubmitButton ({
