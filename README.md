@@ -8,8 +8,7 @@ This is a small simple but scalable application dedicated to implementing yup va
   
 `This concept will provide`
   
-- Asterisk is hidden if no error occurred during submission
-- Asterisk notification on titles of inputs if there are errors.
+- Error icon notification on titles of inputs if there are errors.
 - If a form is paginated state can be set to move the user back to page where the error occurred.
 - Users get a plain english explanation of where the error occurred
 
@@ -22,8 +21,14 @@ This is a small simple but scalable application dedicated to implementing yup va
 
 
 ## `Preview`
-
-<img src='./public/validation-input.png' alt='preview' >
+  
+`No Error`
+  
+<img src='./public/validation1.png' alt='preview' >
+  
+`Error`
+  
+<img src='./public/validation2.png' alt='preview' >
 
   
 ## `Install`
