@@ -7,20 +7,17 @@ import {
   ErrorList
 } from './styles'
 
-interface Props {
-  errors: IErrors[]
-}
 
 export default function ShowErrors ({
-  errors
-}: Props
+  validationErrors
+}: IErrors
 ): JSX.Element | null {
-  if (errors.length) {
+  if (validationErrors.length) {
     return (
       <div>
         <ErrorListTitle>Your submission was not sent</ErrorListTitle>
         {
-          errors.map(({ message }, i) => {
+          validationErrors.map(({ message }, i) => {
             return (
               <ErrorList key={i}>
               { message }
