@@ -1,8 +1,8 @@
-import hasError from '../../functions/hasError'
-import ErrorIcon from '@material-ui/icons/Error'
+import NotifyInputError from '../NotifyInputError'
 
 import {
-  IErrors
+  IErrors,
+  IHandleChange
 } from '../../types'
 
 import {
@@ -11,30 +11,26 @@ import {
 } from './styles'
 
 
-interface Props {
+interface Props extends IHandleChange, IErrors {
   autoComplete?: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   value: string
   type?: string
   placeholder?: string
   label?: string
   name: string
   title: string
-  validatorErrors: IErrors[]
-  props?: any
 }
 
 export default function AppTextInput ({
     autoComplete,
-    onChange,
+    handleChange,
     value,
     type = 'text',
     placeholder,
     label,
     name,
     title,
-    validatorErrors,
-    ...props
+    validationErrors
 }: Props
 ): JSX.Element {
 
@@ -44,12 +40,11 @@ export default function AppTextInput ({
         title &&
           <h3>
             { title }
-            {
-              hasError({ errors: validatorErrors, name }) ?
-                <ErrorIcon style={{ color: 'red' }} />
-                :
-                <span style={{ color: 'red', fontSize: '30px' }}> *</span>
-            }
+            <NotifyInputError
+              required={true}
+              validationErrors={validationErrors}
+              name={name}
+            />
           </h3>
       }
       <label>
@@ -60,8 +55,10 @@ export default function AppTextInput ({
           placeholder={placeholder}
           type={type}
           value={value}
-          onChange={onChange}
-          {...props}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            const { name, value } = e.target
+            handleChange({ name, value })
+          }}
         />
       </label>
     </div>
