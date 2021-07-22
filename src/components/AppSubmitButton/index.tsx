@@ -4,7 +4,7 @@ import {
 
 interface Props {
   text: string
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function AppSubmitButton ({
