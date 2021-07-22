@@ -1,4 +1,10 @@
 export interface IErrors {
-  message: string
-  name: string
+  validationErrors: {
+    message: string
+    name: string
+  }[]
+}
+
+export interface IHandleChange {
+  handleChange: ({ name, value }: { name: string, value: any }) => void
 }
