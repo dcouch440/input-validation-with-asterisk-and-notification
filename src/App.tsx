@@ -19,6 +19,7 @@ interface IInput {
 interface IExampleRules {
   name: string,
   displayName: string
+  matches: RegExp
 }
 
 export default function App (): JSX.Element {
@@ -31,8 +32,10 @@ export default function App (): JSX.Element {
     }
   })
 
+  const regEx: RegExp = /[0-9]/
+
   const exampleRules = (
-    { name, displayName }:
+    { name, displayName, matches }:
     IExampleRules
   ): any => yup.object().shape({
     [name]: yup
@@ -41,7 +44,7 @@ export default function App (): JSX.Element {
         message: `There was an error at ${displayName}`,
         name,
       }))
-      .matches(/[0-9]/, () => ({
+      .matches(matches, () => ({
         message: `Only numbers allowed at ${displayName}`,
         name,
       }))
@@ -57,12 +60,13 @@ export default function App (): JSX.Element {
     }))
   }
 
-  const handleValidateAllInputs = (): void => {
+  const handleValidateAllInputs = (
+  ): void => {
     setErrors([]);
     [
-      () => exampleRules({ name: 'testErrors', displayName: 'Test Errors' }).validate(inputs),
+      () => exampleRules({ name: 'testErrors', displayName: 'Test Errors', matches: regEx }).validate(inputs),
       () => mustSelectOne({ name: 'testMultipleChoice', obj: inputs })
-    ].forEach(async (validate : any) => {
+    ].forEach(async ( validate: () => Promise<void> | (() => void)) => {
       try {
         await validate()
       } catch (err) {
