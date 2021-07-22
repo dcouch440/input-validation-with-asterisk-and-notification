@@ -11,17 +11,16 @@ import {
   IErrors
 } from '../../types'
 
-interface IHasError {
-  errors: IErrors[]
+interface IHasError extends IErrors {
   name: string
 }
 
 const hasError = (
-  { errors, name }:
+  { validationErrors, name }:
   IHasError
 ): boolean => {
-  return errors
-    .map(error => error.name)
+  return validationErrors
+    .map(validationError => validationError.name)
     .filter(n => n === name)
     .length !== 0
 }
