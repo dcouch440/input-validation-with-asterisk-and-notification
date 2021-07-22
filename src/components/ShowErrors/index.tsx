@@ -7,7 +7,6 @@ import {
   ErrorList
 } from './styles'
 
-
 export default function ShowErrors ({
   validationErrors
 }: IErrors
