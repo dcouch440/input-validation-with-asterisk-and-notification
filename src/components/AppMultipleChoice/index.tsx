@@ -31,7 +31,8 @@ export default function MultipleChoice ({
   selectAllOption,
   renderAdditional,
   validationErrors
-}: IMultipleChoice): JSX.Element {
+}: IMultipleChoice
+): JSX.Element {
   const [selectAll, setSelectAll] = useState(false)
 
   const handleSelectAll = () => {

@@ -14,7 +14,8 @@ export default function NotifyInputError ({
   validationErrors,
   name,
   required
-}: INotifyInputError): JSX.Element | null {
+}: INotifyInputError
+): JSX.Element | null {
   return (
     hasError({ validationErrors, name }) ?
       <ErrorIcon style={{ color: 'red' }} />
