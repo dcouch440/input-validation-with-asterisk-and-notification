@@ -17,6 +17,7 @@ This is a small simple but scalable application dedicated to implementing yup va
 - react
 - styled-components
 - typescript
+- jest
 - yup
 
 
