@@ -17,13 +17,17 @@ export default function ShowErrors ({
       <div>
         <ErrorListTitle>Your submission was not sent</ErrorListTitle>
         {
-          validationErrors.map(({ message }, i) => {
-            return (
-              <ErrorList key={i}>
-              { message }
-            </ErrorList>
-            )
-          })
+          validationErrors.map((
+              { message }:
+              { message: string }, i: number
+            ) => {
+              return (
+                <ErrorList key={i}>
+                { message }
+                </ErrorList>
+              )
+            }
+          )
         }
       </div>
     )
