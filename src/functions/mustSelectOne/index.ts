@@ -32,7 +32,7 @@ const mustSelectOne = ({
   if (trueValues === 0) {
     throw new CustomError({
       name: 'CustomError',
-      message: `You Must Select One at ${name}`,
+      message: 'You Must Select One at Test Multiple Choice',
       pageIndex,
       nameOfObject: name
     })
