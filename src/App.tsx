@@ -1,16 +1,19 @@
 import AppTextInput from './components/AppTextInput'
-import React, { useState } from 'react'
+import AppMultipleChoice from './components/AppMultipleChoice'
+import { useState } from 'react'
 import ShowErrors from './components/ShowErrors'
 import AppSubmitButton from './components/AppSubmitButton'
 import * as yup from 'yup'
 import GlobalStyles from './GlobalStyles'
-
-import {
-  IErrors
-} from './types'
+import options from './data/options'
+import mustSelectOne from './functions/mustSelectOne'
 
 interface IInput {
   testErrors: string
+  testMultipleChoice: {
+    option1: boolean
+    option2: boolean
+  }
 }
 
 interface IExampleRules {
@@ -19,8 +22,14 @@ interface IExampleRules {
 }
 
 export default function App (): JSX.Element {
-  const [errors, setErrors] = useState<IErrors[]>([])
-  const [input, setInput] = useState<IInput>({ testErrors: '' })
+  const [errors, setErrors] = useState<{name: string; message: string}[]>([])
+  const [inputs, setInputs] = useState<IInput>({
+    testErrors: '',
+    testMultipleChoice: {
+      option1: false,
+      option2: false
+    }
+  })
 
   const exampleRules = (
     { name, displayName }:
@@ -38,39 +47,56 @@ export default function App (): JSX.Element {
       }))
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    const { name, value } = e.target
-    setInput(prev => ({
+  const handleChange = (
+    { name, value }:
+    { name: string, value: string }
+  ): void => {
+    setInputs(prev => ({
       ...prev,
       [name]: value
     }))
   }
 
-  const handleClick = async (): Promise<void> => {
-    try {
-      await exampleRules({ name: 'testErrors', displayName: 'Test Errors' })
-        .validate(input)
-    } catch (err) {
-      console.log(err)
-      if (err.name === 'ValidationError') {
-        setErrors([...err.errors])
+  const handleValidateAllInputs = (): void => {
+    setErrors([]);
+    [
+      () => exampleRules({ name: 'testErrors', displayName: 'Test Errors' }).validate(inputs),
+      () => mustSelectOne({ name: 'testMultipleChoice', obj: inputs })
+    ].forEach(async (validate : any) => {
+      try {
+        await validate()
+      } catch (err) {
+        if (err.name === 'ValidationError') {
+          setErrors(prev => [...prev, ...err.errors])
+        } else if (err.name === 'CustomError') {
+          setErrors(prev => [...prev, err.error])
+        }
       }
-    }
+    })
   }
 
   return (
     <div className='global-container'>
       <GlobalStyles />
-      <ShowErrors errors={errors} />
+      <ShowErrors validationErrors={errors} />
       <AppTextInput
         name='testErrors'
-        value={input.testErrors}
-        onChange={handleChange}
-        validatorErrors={errors}
-        title='Please Enter Numbers: '
+        value={inputs.testErrors}
+        handleChange={handleChange}
+        validationErrors={errors}
+        title='Please Enter Number(s): '
+      />
+      <AppMultipleChoice
+        title='Select At least One'
+        obj={inputs}
+        handleChange={handleChange}
+        category='testMultipleChoice'
+        optionsLabelsArray={options}
+        validationErrors={errors}
+        selectAllOption={true}
       />
       <AppSubmitButton
-        onClick={handleClick}
+        onClick={handleValidateAllInputs}
         text="Validate"
       />
     </div>
