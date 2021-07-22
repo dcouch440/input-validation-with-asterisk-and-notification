@@ -3,8 +3,8 @@ import {
 } from './styles'
 
 interface Props {
-  text: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  text: string
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export default function AppSubmitButton ({
