@@ -7,9 +7,13 @@ import {
   ErrorList
 } from './styles'
 
+interface Props {
+  validationErrors: IErrors[]
+}
+
 export default function ShowErrors ({
   validationErrors
-}: IErrors
+}: Props
 ): JSX.Element | null {
   if (validationErrors.length) {
     return (

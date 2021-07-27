@@ -7,6 +7,7 @@ import * as yup from 'yup'
 import GlobalStyles from './GlobalStyles'
 import options from './data/options'
 import mustSelectOne from './functions/mustSelectOne'
+import { IErrors } from './types'
 
 interface IInput {
   testErrors: string
@@ -23,7 +24,7 @@ interface IExampleRules {
 }
 
 export default function App (): JSX.Element {
-  const [errors, setErrors] = useState<{name: string; message: string}[]>([])
+  const [errors, setErrors] = useState<IErrors[]>([])
   const [inputs, setInputs] = useState<IInput>({
     testErrors: '',
     testMultipleChoice: {
@@ -37,7 +38,7 @@ export default function App (): JSX.Element {
   const exampleRules = (
     { name, displayName, matches }:
     IExampleRules
-  ): any => yup.object().shape({
+  ) => yup.object().shape({
     [name]: yup
       .string()
       .required(() => ({

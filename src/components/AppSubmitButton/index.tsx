@@ -1,10 +1,15 @@
 import {
+  ClickEvent
+} from '../../types'
+
+import {
   SubmitButton
 } from './styles'
 
+
 interface Props {
   text: string
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void
+  onClick: (e: ClickEvent) => void
 }
 
 export default function AppSubmitButton ({

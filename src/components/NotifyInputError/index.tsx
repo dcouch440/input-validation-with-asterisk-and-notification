@@ -5,9 +5,10 @@ import {
   IErrors
 } from '../../types'
 
-interface INotifyInputError extends IErrors {
+interface INotifyInputError {
   name: string
   required: boolean
+  validationErrors: IErrors[]
 }
 
 export default function NotifyInputError ({

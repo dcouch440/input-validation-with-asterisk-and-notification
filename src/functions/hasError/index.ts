@@ -11,7 +11,8 @@ import {
   IErrors
 } from '../../types'
 
-interface IHasError extends IErrors {
+interface IHasError {
+  validationErrors: IErrors[]
   name: string
 }
 

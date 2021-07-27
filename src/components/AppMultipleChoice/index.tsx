@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import NotifyInputError from '../NotifyInputError'
 
 import {
+  ChangeEvent,
   IErrors,
   IHandleChange
 } from '../../types'
@@ -13,13 +14,14 @@ import {
 
 // SEE INTEREST IN PAGES
 
-interface IMultipleChoice extends IHandleChange, IErrors {
+interface IMultipleChoice extends IHandleChange {
   obj: any
   category: string
   optionsLabelsArray: string[][]
   title: string
   selectAllOption?: boolean
   renderAdditional?: JSX.Element
+  validationErrors: IErrors[]
 }
 
 export default function MultipleChoice ({
@@ -65,7 +67,7 @@ export default function MultipleChoice ({
     }
   }
 
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCheckboxChange = (e: ChangeEvent) => {
     if (e.target.type === 'checkbox') {
       const { name, checked } = e.target
       const newData = {
@@ -89,7 +91,7 @@ export default function MultipleChoice ({
     }
   }
 
-  const options = optionsLabelsArray.map(([option, label], i) => {
+  const options = optionsLabelsArray.map(([option, label]: string[], i: number) => {
     return (
       <li key={i}>
         <input
@@ -107,13 +109,16 @@ export default function MultipleChoice ({
     <CheckboxContainer>
       <h3>
         { title }
-        <NotifyInputError name={category} validationErrors={validationErrors} required={true} />
+        <NotifyInputError
+          name={category}
+          validationErrors={validationErrors}
+          required={true}
+        />
       </h3>
       <CheckboxList>
         { options }
         {/* addition stuff can be rendered here by putting them into the argument and they will work just if they where in the outside. this way this can be used for whatever */}
         { renderAdditional }
-
         {/* select all option - clicking will make all values true */}
         {
           selectAllOption &&

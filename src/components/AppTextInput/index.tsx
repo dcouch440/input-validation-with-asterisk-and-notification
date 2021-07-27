@@ -10,8 +10,7 @@ import {
   TextInput
 } from './styles'
 
-
-interface Props extends IHandleChange, IErrors {
+interface Props extends IHandleChange {
   autoComplete?: string
   value: string
   type?: string
@@ -19,6 +18,7 @@ interface Props extends IHandleChange, IErrors {
   label?: string
   name: string
   title: string
+  validationErrors: IErrors[]
 }
 
 export default function AppTextInput ({

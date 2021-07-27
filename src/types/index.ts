@@ -1,10 +1,14 @@
+import React from 'react'
+
 export interface IErrors {
-  validationErrors: {
-    message: string
-    name: string
-  }[]
+  message: string
+  name: string
 }
 
 export interface IHandleChange {
   handleChange: ({ name, value }: { name: string, value: any }) => void
 }
+
+export type ChangeEvent = React.ChangeEvent<HTMLInputElement>
+
+export type ClickEvent = React.MouseEvent<HTMLButtonElement>
